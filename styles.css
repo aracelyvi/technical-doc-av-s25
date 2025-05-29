@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+      background-color: #FFEFE8;
+font-family: "Jersey 20", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 20px;
+  
+}
+
+#navbar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  padding: 20px;
+  height: 1000px;
+  width: 320px;
+  border-right: solid 5px #8E1D1D;
+  border-bottom: solid px #8E1D1D;
+  font-size: 3em;
+}
+
+#main-doc {
+  position: absolute;
+  margin-left: 320px;
+  padding: 20px;
+  height: 1000px;
+}
+
+ul{
+ margin-left: 15px; 
+}
+
+@media only screen and (max-width: 768px) {
+  #navbar {
+    position: fixed;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-height: 300px;
+    border: none;
+    z-index: 1;
+    border-bottom: 5px solid;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  #main-doc {
+    position: relative;
+    margin-left: 0px;
+    padding-top: 10px;
+  }
+
+
+  header {
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    padding-bottom: 10px;
+    
+  }
+
+  .main-section {
+    padding-top: 275px;
+    margin-top: -275px;
+  }
+}
+
+header{
+  font-size: 50px;
+  padding-top: 35px;
+  color: #f74c02;
+}
+hr{
+  width: 115%;
+  border: 2px solid #8E1D1D;
+  margin-left: -20px;
+}
+
+img{
+  width: 250px;
+}
+
+.nav-link, p, ul, code {
+  color: #8E1D1D;
+}
+
+.nav-link{
+  font-size: 25px;
+  color: #f74c02;
+}
+
+.main-img{
+width: 300px;
+margin-left:80px;
+
+}

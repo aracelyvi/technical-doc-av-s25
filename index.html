@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<title>Technical Documentation</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+20&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+      <main id="main-doc" >
+        <section class="main-section"  id="introduction">
+          <header>Introduction</header>
+          <p>Pikmin Bloom transforms daily steps into growth progress for virtual Pikmin companions. Users walk, collect items, grow Pikmin, and interact with a shared AR world. The app syncs with pedometer APIs and renders real-world overlays using Unity and WebAR.</p>
+          </section>
+
+          <section class="main-section" id="user_authentication">
+          <header>User Authentication</header>
+          <p>The app supports OAuth 2.0 for authenticating users through Google or Apple accounts. A session token is issued and refreshed in the background every 50 minutes. Multi-device sync is supported via user-linked cloud accounts.</p>
+          </section>
+
+          <section class="main-section" id="step_tracking">
+          <header>Step Tracking</header>
+          <p>Steps are pulled from:</p>
+            <ul>
+<li>Apple HealthKit (iOS)</li>
+<li>Google Fit (Android)</li>
+</ul>
+<p>The data is normalized to account for device-specific variations and synced every 15 minutes. Delta steps are calculated server-side to maintain integrity.</p>
+          </section>
+
+          <section class="main-section" id="growth">
+          <header>Growth</header>
+          <p>Each Pikmin begins as a seedling. The seedling grows based on the number of steps walked. The growth formula includes modifiers for flower types, potion boosts, and time of day. A background job computes which Pikmin are ready to pluck every 10 minutes.</p>
+          </section>
+<img class="main-img" src="https://snipboard.io/nkLSPp.jpg">
+          <section class="main-section" id="expeditions">
+          <header>Expeditions</header>
+          <p>Pikmin can be sent on expeditions to retrieve fruits, post cards, and other items. </p>
+          <p>  Expeditions:
+            <ul>
+<li>Are mapped via real-world POIs (Points of Interest)</li>
+<li>Have variable durations depending on Pikmin strength and number</li>
+<li>Return data via batched JSON responses</li>
+</ul>
+ 
+</p>
+          </section>
+
+          <section class="main-section" id="ar_rendering">
+          <header>AR Rendering</header>
+          <p>The AR experience is rendered via a lightweight Unity engine integration, with WebXR fallbacks. The AR module initializes once GPS lock is established.</p>
+          <code>AR Session Initialization
+InitializeARSession(gpsData) {
+  loadPikminModels();
+  placeModelOnGroundPlane();
+  startTrackingUserMovement();
+}
+</code>
+          </section>
+
+          <section class="main-section" id="flower_planting">
+          <header>Flower Planting</header>
+          <p>Users plant virtual flowers by walking in real life.
+            <br> 
+          The system includes: </p>
+          <ul>
+<li>Petal consumption mechanics</li>
+<li>Flower zone detection</li>
+<li>Real-time user overlap tracking</li>
+<li>Time-based bloom cycles</li>
+<li>Reward distribution at flower density milestones</li>
+</ul>
+
+</p>
+
+          </section>
+
+          <section class="main-section" id="daily_journal_and_progress">
+          <header>Daily Journal and Progress</header>
+          <p>Each day, the app logs user progress, creates a visual journal entry, and syncs it to the cloud.</p>
+          <code>// Daily journal entry
+createDailyLog(userSteps, photosTaken) {
+  entry = {
+    date: getToday(),
+    steps: userSteps,
+    photos: photosTaken,
+    events: summarizeDayEvents()
+  };
+  uploadToJournal(entry);
+}
+</code>
+          </section>
+
+          <section class="main-section" id="app_theming_and_skinning">
+          <header>App Theming and Skinning</header>
+         <p> The app supports seasonal skins and event-based themes, including:</p>
+            <ul>
+<li>Halloween Pikmin UI</li>
+<li>Cherry Blossom Festival background</li>
+<li>Winter wonderland overlays</li>
+<li>Regional theming (Japan, USA)</li>
+<li>Dynamic themes based on time of day</li>
+</ul>
+</p>
+<br>
+<img class="main-img" src="https://snipboard.io/QJlLdW.jpg">
+
+
+          </section>
+
+
+          <nav id="navbar">
+            <header>Pikmin Bloom</header>
+            <img src="https://snipboard.io/UiKqXk.jpg">
+          <a class="nav-link" href="#introduction">Introduction</a>
+          <hr>
+          <a class="nav-link" href="#user_authentication">User Authentication</a>
+          <hr>
+          <a class="nav-link" href="#step_tracking">Step Tracking</a><hr>
+                <a class="nav-link" href="#growth">Growth</a><hr>
+      <a class="nav-link" href="#expeditions">Expeditions</a><hr>
+      <a class="nav-link" href="#ar_rendering">AR Rendering</a><hr>
+      <a class="nav-link" href="#flower_planting">Flower Planting</a><hr>
+      <a class="nav-link" href="#daily_journal_and_progress">Daily Journal and Progress</a><hr>
+      <a class="nav-link" href="#app_theming_and_skinning">App Theming and Skinning</a>
+<hr>
+            </nav>
+
+        </main>
+      </body>
+  </html>
